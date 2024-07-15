@@ -4,9 +4,9 @@ import React, { useEffect, useState } from "react";
 
 export default function EventList() {
   const [events, setEvents] = useState([]);
-  // const apikey = process.env.REACT_APP_API_KEY;
+  const apiKey = process.env.NEXT_PUBLIC_TICKETMASTER_API_KEY;
 
-  // console.log(apikey);
+  console.log(apiKey);
 
   const city = "calgary";
 
@@ -15,7 +15,7 @@ export default function EventList() {
   async function getEvents() {
     try {
       const response = await fetch(
-        `https://app.ticketmaster.com/discovery/v2/events.json?city=${cleanedCity}&apikey=GtIAGHvyMJ5t1uTNSvG2sU6TwnePUGEF`
+        `https://app.ticketmaster.com/discovery/v2/events.json?city=${cleanedCity}&apikey=${apiKey}`
       );
 
       const data = await response.json();
