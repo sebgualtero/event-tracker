@@ -14,19 +14,24 @@ export default function Home() {
   console.log(city);
 
   return (
-    <main className="bg-slate-500 rounded-md">
+    <main className="bg-slate-200 rounded-md">
       <nav></nav>
       <div class="row">
         <div class="col s12">
           <div class="row">
             <div class="input-field col s12">
-              <input type="text" id="autocomplete-input" class="autocomplete"/>
-              <label for="autocomplete-input">Enter your city</label>
+              <label for="autocomplete-input" className="text-gray-900">
+                Enter your city
+              </label>
+              <br></br>
+              <input type="text" id="autocomplete-input" class="autocomplete" />
             </div>
           </div>
         </div>
       </div>
-      <div className="bg-slate-400 border-4 m-3 rounded-md">
+      <div className="bg-slate-400 border-4 m-3 rounded-md"></div>
+
+      <div className="row">
         <EventList />
       </div>
     </main>
