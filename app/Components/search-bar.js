@@ -2,15 +2,15 @@
 
 import { useState } from "react";
 
-export default function SearchBar({ searchText }) {
+export default function SearchBar({ onSearch }) {
   const [text, setText] = useState('');
 
   const onSubmit = (e) => {
     e.preventDefault();
-    if (typeof searchText === 'function') {
-      searchText(text);
+    if (typeof onSearch === 'function') {
+      onSearch(text);
     } else {
-      console.error('searchText is not a function');
+      console.error('onSearch is not a function');
     }
   };
 
