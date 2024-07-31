@@ -1,3 +1,5 @@
+const { Grenze } = require("next/font/google");
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -7,6 +9,14 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        Green: {
+          350: "#84BABF",
+          450: "#0d6f73",
+          550: "#085558",
+          650: "#06363d",
+        },
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
