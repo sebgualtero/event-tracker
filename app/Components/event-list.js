@@ -2,8 +2,9 @@
 
 import React, { useEffect, useState } from "react";
 
-export default function EventList({ city }) {
+export default function EventList({ city, category }) {
   const [events, setEvents] = useState([]);
+  const [filteredEvents, setFilteredEvents] = useState([]);
   const apiKey = process.env.NEXT_PUBLIC_TICKETMASTER_API_KEY;
 
   useEffect(() => {
@@ -18,16 +19,19 @@ export default function EventList({ city }) {
           const data = await response.json();
 
           if (data._embedded) {
-            //sorts the events by date
-            data._embedded.events.sort((a, b) => {
+            // Sort the events by date
+            let sortedEvents = data._embedded.events.sort((a, b) => {
               let dateA = new Date(a.dates.start.localDate);
               let dateB = new Date(b.dates.start.localDate);
               return dateA - dateB;
             });
-            setEvents(data._embedded.events);
+
+            setEvents(sortedEvents);
           } else {
             setEvents([]);
           }
+        } else {
+          setEvents([]);
         }
       } catch (error) {
         console.log(`Error: ${error.message}`);
@@ -37,11 +41,25 @@ export default function EventList({ city }) {
     getEvents();
   }, [city, apiKey]);
 
+  useEffect(() => {
+    if (category === "all") {
+      setFilteredEvents(events);
+    } else {
+      const filtered = events.filter(event =>
+        event.classifications &&
+        event.classifications.some(classification =>
+          classification.segment.name.toLowerCase() === category.toLowerCase()
+        )
+      );
+      setFilteredEvents(filtered);
+    }
+  }, [category, events]);
+
   return (
     <div>
       <ul role="list" className="divide-y divide-gray-100">
-        {events.length > 0 ? (
-          events.map((event) => (
+        {filteredEvents.length > 0 ? (
+          filteredEvents.map((event) => (
             <li
               key={event.id}
               className="flex justify-between gap-x-6 py-5 m-3"
