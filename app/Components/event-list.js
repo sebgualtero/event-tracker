@@ -35,7 +35,7 @@ export default function EventList({ city }) {
     }
 
     getEvents();
-  }, [city]);
+  }, [city, apiKey]);
 
   return (
     <div>
