@@ -13,7 +13,13 @@ export default function Home() {
 
   return (
     <main className="bg-slate-300 rounded-md dark:bg-slate-800">
-      <nav></nav>
+      <nav className="flex justify-center gap-4 mt-4">
+        <div className="border-cyan-300">
+          <h1 className="text-3xl font-semibold text-gray-900 dark:text-gray-50">
+            Event Finder
+          </h1>
+        </div>
+      </nav>
       <div>
         <SearchBar onSearch={handleSearch} />
       </div>

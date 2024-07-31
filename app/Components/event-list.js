@@ -70,6 +70,9 @@ export default function EventList({ city }) {
                   {event.dates.start.localTime
                     ? event.dates.start.localTime.slice(0, 5)
                     : "TBA"}
+                  {/* <a href={event.url} target="_blank" rel="noreferrer">
+                    More Info
+                  </a> */}
                 </p>
               </div>
             </li>
