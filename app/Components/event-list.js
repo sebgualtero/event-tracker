@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import Image from 'next/image';
 
 export default function EventList({ city, category }) {
   const [events, setEvents] = useState([]);
@@ -19,8 +20,11 @@ export default function EventList({ city, category }) {
           const data = await response.json();
 
           if (data._embedded) {
+            // Filter out events without URLs
+            let eventsWithUrls = data._embedded.events.filter(event => event.url);
+
             // Sort the events by date
-            let sortedEvents = data._embedded.events.sort((a, b) => {
+            let sortedEvents = eventsWithUrls.sort((a, b) => {
               let dateA = new Date(a.dates.start.localDate);
               let dateB = new Date(b.dates.start.localDate);
               return dateA - dateB;
@@ -65,9 +69,11 @@ export default function EventList({ city, category }) {
               className="flex justify-between gap-x-6 py-5 m-3"
             >
               <div className="flex min-w-0 gap-x-4">
-                <img
+                <Image
                   alt=""
                   src={event.images[0].url}
+                  width={48}
+                  height={48}
                   className="h-12 w-12 flex-none rounded-full bg-gray-50"
                 />
                 <div className="min-w-0 flex-auto">
@@ -88,10 +94,15 @@ export default function EventList({ city, category }) {
                   {event.dates.start.localTime
                     ? event.dates.start.localTime.slice(0, 5)
                     : "TBA"}
-                  {/* <a href={event.url} target="_blank" rel="noreferrer">
-                    More Info
-                  </a> */}
                 </p>
+                <a
+                  href={event.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-2 px-4 py-2 bg-blue-700 text-white rounded-lg hover:bg-blue-800"
+                  >
+                    More Info
+                  </a>
               </div>
             </li>
           ))

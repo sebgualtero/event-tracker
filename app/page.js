@@ -11,7 +11,7 @@ export default function Home() {
   const handleSearch = (city) => {
     setCity(city);
   };
-
+  
   return (
     <main className="bg-slate-300 rounded-md dark:bg-slate-800">
       <nav className="flex justify-center gap-4 mt-4">
