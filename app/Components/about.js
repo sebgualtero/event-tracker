@@ -1,15 +1,15 @@
 export default function About() {
   return (
-    <div class="bg-white py-24 sm:py-32">
+    <div class="bg-slate-900 py-24 sm:py-32">
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="mx-auto max-w-2xl lg:text-center">
-          <h2 class="text-base font-semibold leading-7 text-indigo-600">
+          <h2 class="text-base font-semibold leading-7 text-cyan-300">
             Find events near you anytime in a few clicks
           </h2>
-          <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          <p class="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
             Event Finder
           </p>
-          <p class="mt-6 text-lg leading-8 text-gray-600">
+          <p class="mt-6 text-lg leading-8 text-gray-200">
             This is an event finder application for events managed by
             ticketmaster and other vendors in the future built with Next.js and
             Tailwind CSS.
@@ -18,7 +18,7 @@ export default function About() {
         <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
           <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
             <div class="relative pl-16">
-              <dt class="text-base font-semibold leading-7 text-gray-900">
+              <dt class="text-base font-semibold leading-7 text-gray-400">
                 <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600">
                   <svg
                     class="h-6 w-6 text-white"
@@ -37,12 +37,12 @@ export default function About() {
                 </div>
                 Developed for
               </dt>
-              <dd class="mt-2 text-base leading-7 text-gray-600">
+              <dd class="mt-2 text-base leading-7 text-white">
                 Developed for CPRG306 At SAIT Calgary, AB. 2024
               </dd>
             </div>
             <div class="relative pl-16">
-              <dt class="text-base font-semibold leading-7 text-gray-900">
+              <dt class="text-base font-semibold leading-7 text-gray-400">
                 <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600">
                   <svg
                     class="h-6 w-6 text-white"
@@ -61,7 +61,7 @@ export default function About() {
                 </div>
                 Developed by
               </dt>
-              <dd class="mt-2 text-base leading-7 text-gray-600">
+              <dd class="mt-2 text-base leading-7 text-white">
                 <p>Tan ly</p>
                 <p>Carson Turner</p>
                 <p>Sebastian Gualtero</p>
