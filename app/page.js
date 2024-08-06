@@ -1,8 +1,10 @@
 "use client";
 
+import Link from "next/link";
 import EventList from "./Components/event-list";
 import SearchBar from "./Components/search-bar";
 import { useState } from "react";
+import About from "./Components/about";
 
 export default function Home() {
   const [city, setCity] = useState("calgary");
@@ -14,11 +16,16 @@ export default function Home() {
   
   return (
     <main className="bg-slate-300 rounded-md dark:bg-slate-800">
-      <nav className="flex justify-center gap-4 mt-4">
-        <div className="border-cyan-300">
-          <h1 className="text-3xl font-semibold text-gray-900 dark:text-gray-50">
+      <nav className="flex flex-col items-center justify-center mt-4">
+        <div className="border-cyan-300 mb-2">
+          <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-50">
             Event Finder
           </h1>
+        </div>
+        <div>
+          <h2 className="text-lg font-medium leading-7 text-cyan-700">
+            Find events near you anytime in a few clicks
+          </h2>
         </div>
       </nav>
       <div>
@@ -40,7 +47,7 @@ export default function Home() {
         <button onClick={() => setCategory("sports")} className="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
           Sports
         </button>
-        <button onClick={() => setCategory("arts & theatre")} className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+        <button onClick={() => setCategory("arts & theatre")} className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-blue-red font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
           Arts & Theatre
         </button>
       </div>
@@ -49,6 +56,7 @@ export default function Home() {
       <div className="row ml-3">
         <EventList city={city} category={category} />
       </div>
+      <footer><About /></footer>
     </main>
   );
 }

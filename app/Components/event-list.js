@@ -72,9 +72,9 @@ export default function EventList({ city, category }) {
                 <Image
                   alt=""
                   src={event.images[0].url}
-                  width={48}
-                  height={48}
-                  className="h-12 w-12 flex-none rounded-full bg-gray-50"
+                  width={100}
+                  height={100}
+                  className="h-15 w-15 flex-none rounded-md bg-gray-50"
                 />
                 <div className="min-w-0 flex-auto">
                   <p className="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-50">
