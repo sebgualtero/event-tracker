@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "dotenv": "^16.4.5",
+    "encoding": "^0.1.13",
+    "firebase": "^10.12.5",
     "materialize-css": "^1.0.0-rc.2",
     "next": "14.2.4",
     "react": "^18",
